@@ -31,6 +31,11 @@ mongoose.connect(dbURI)
     console.log('MongoDB connection error:', err);
   });
 
+// Serve homepage with links to "Add Product" and "Product List"
+app.get('/', (req, res) => {
+  res.sendFile(path.join(__dirname, 'public', 'index.html'));
+});
+
 app.get('/add-product', (req, res) => {
     res.sendFile(path.join(__dirname, 'public', 'add-product.html'));
 });
